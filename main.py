@@ -25,6 +25,12 @@ class Product:
                             text='Warehouse Inventory Sales Purchase', bg='white')
         self.ITitle.grid()
 
+        OperationFrame = Frame(MainFrame, bd=1, width=1300, height=60,
+                               padx=50, pady=20,bg='white', relief=RIDGE)
+        OperationFrame.pack(side=BOTTOM)
+
+        
+
 
 if __name__ =='__main__':
     root=Tk()

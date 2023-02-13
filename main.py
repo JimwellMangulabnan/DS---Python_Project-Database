@@ -57,28 +57,48 @@ class Product:
         self.labelpId.grid(row=0, column=0, sticky= W)
 
         self.txtpId = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pId, width=35)
+                            textvariable=pId, width=30)
         self.txtpId.grid(row=0, column=1, sticky= W)
 
         self.labelpName = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
                               text="Product Name : ", padx=2, bg='white', fg='blue')
         self.labelpName.grid(row=1, column=0, sticky=W)
 
+        self.txtpName = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
+                            textvariable=pName, width=30)
+        self.txtpName.grid(row=1, column=1, sticky=W)
+
         self.labelpPrice = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
                               text="Product Price : ", padx=2, bg='white', fg='blue')
         self.labelpPrice.grid(row=2, column=0, sticky=W)
+
+        self.txtpPrice = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
+                            textvariable=pPrice, width=30)
+        self.txtpPrice.grid(row=2, column=1, sticky=W)
 
         self.labelpQty = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
                               text="Product Quantity : ", padx=2, bg='white', fg='blue')
         self.labelpQty.grid(row=3, column=0, sticky=W)
 
+        self.txtpQty = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
+                            textvariable=pQty, width=30)
+        self.txtpQty.grid(row=3, column=1, sticky=W)
+
         self.labelpCompany = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
                               text="Mfg. Company : ", padx=2, bg='white', fg='blue')
         self.labelpCompany.grid(row=4, column=0, sticky=W)
 
+        self.txtpCompany = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
+                            textvariable=pCompany, width=30)
+        self.txtpCompany.grid(row=4, column=1, sticky=W)
+
         self.labelpContact = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
                               text="Company Contact", padx=2, bg='white', fg='blue')
         self.labelpContact.grid(row=5, column=0, sticky=W)
+
+        self.txtpContact = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
+                            textvariable=pContact, width=30)
+        self.txtpContact.grid(row=5, column=1, sticky=W)
 
 
 

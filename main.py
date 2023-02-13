@@ -8,9 +8,7 @@ class Product:
 
     def __init__(self,root):
 
-        #create object reference instance of Database class as p
-        p = Database()
-        p.conn()
+
 
         self.root = root
         self.root.title("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT SYSTEM")
@@ -33,6 +31,16 @@ class Product:
                 root.destroy()
                 print("Product : close method finished\n")
                 return
+
+        def clear():
+            print("Product : clear method called ")
+            self.txtpId.delete(0, END)
+            self.txtpName.delete(0, END)
+            self.txtpPrice.delete(0, END)
+            self.txtpQty.delete(0, END)
+            self.txtpCompany.delete(0, END)
+            self.txtpContact.delete(0, END)
+            print("Product : clear method finished\n ")
 
         ''' Create the frame'''
         MainFrame = Frame(self.root,bg="red")
@@ -146,7 +154,7 @@ class Product:
         self.buttonShowData.grid(row=0, column=1)
 
         self.buttonClear = Button(OperationFrame, text='Reset',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command=clear)
         self.buttonClear.grid(row=0, column=2)
 
         self.buttonDelete = Button(OperationFrame, text='Delete',

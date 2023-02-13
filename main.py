@@ -8,7 +8,8 @@ class Product:
 
     def __init__(self,root):
 
-
+        p = Database()
+        p.conn()
 
         self.root = root
         self.root.title("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT SYSTEM")
@@ -23,6 +24,8 @@ class Product:
         pContact = StringVar()
 
         ''' Let's call the Database methods to perform database operations '''
+
+        # function to close the frame
         def close():
             print("Product : close method called ")
             close = tkinter.messagebox.askyesno("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT \
@@ -32,6 +35,7 @@ class Product:
                 print("Product : close method finished\n")
                 return
 
+        #function for clear / reset the widget
         def clear():
             print("Product : clear method called ")
             self.txtpId.delete(0, END)
@@ -41,6 +45,21 @@ class Product:
             self.txtpCompany.delete(0, END)
             self.txtpContact.delete(0, END)
             print("Product : clear method finished\n ")
+
+        # function to save the product details in Database table
+        def insert():
+            print("Product : insert method called ")
+            if (len(pId.get()) != 0):
+                p.insert(pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                         pCompany.get(), pContact.get())
+                productList.delete(0, END)
+                productList.insert(END,pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                         pCompany.get(), pContact.get())
+
+            else:
+                tkinter.messagebox.askyesno("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT \
+                                    SYSTEM ", "Really .... Enter Product id")
+            print("Product : insert method finished\n ")
 
         ''' Create the frame'''
         MainFrame = Frame(self.root,bg="red")
@@ -146,7 +165,7 @@ class Product:
 
         ''' Add the buttons to operation Frame'''
         self.buttonSaveData = Button(OperationFrame, text = 'Save',
-                                 font= ('arial', 18, 'bold'), height =1, width = '10', bd =4)
+                                 font= ('arial', 18, 'bold'), height =1, width = '10', bd =4, command = insert)
         self.buttonSaveData.grid(row = 0, column =0)
 
         self.buttonShowData = Button(OperationFrame, text='Show Data',

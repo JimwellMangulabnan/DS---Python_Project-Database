@@ -8,7 +8,9 @@ class Product:
 
     def __init__(self,root):
 
-        
+        #create object reference instance of Database class as p
+        p = Database()
+        p.conn()
 
         self.root = root
         self.root.title("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT SYSTEM")
@@ -21,6 +23,16 @@ class Product:
         pQty = StringVar()
         pCompany = StringVar()
         pContact = StringVar()
+
+        ''' Let's call the Database methods to perform database operations '''
+        def close():
+            print("Product : close method called ")
+            close = tkinter.messagebox.askyesno("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT \
+                                                SYSTEM ", "Really .... Do you want to close the system")
+            if close > 0:
+                root.destroy()
+                print("Product : close method finished\n")
+                return
 
         ''' Create the frame'''
         MainFrame = Frame(self.root,bg="red")
@@ -150,7 +162,7 @@ class Product:
         self.buttonUpdate.grid(row=0, column=5)
 
         self.buttonClose = Button(OperationFrame, text='Close',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command =close)
         self.buttonClose.grid(row=0, column=6)
 
 

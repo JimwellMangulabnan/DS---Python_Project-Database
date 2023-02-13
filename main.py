@@ -38,6 +38,11 @@ class Product:
                               text= 'Product Item Details: ')
         LeftBodyFrame.pack(side=LEFT)
 
+        RightBodyFrame = LabelFrame(BodyFrame, bd=2, width=300, height=380,
+                                   padx=20, pady=10, bg='yellow', relief=RIDGE, font=('arial', 15, 'bold'),
+                                   text='Product Item Details: ')
+        RightBodyFrame.pack(side=RIGHT)
+
 
 
 

@@ -45,7 +45,7 @@ class Product:
                               text= 'Product Item Details: ')
         LeftBodyFrame.pack(side=LEFT)
 
-        RightBodyFrame = LabelFrame(BodyFrame, bd=2, width=300, height=380,
+        RightBodyFrame = LabelFrame(BodyFrame, bd=2, width=400, height=380,
                                    padx=20, pady=10, bg='yellow', relief=RIDGE, font=('arial', 15, 'bold'),
                                    text='Product Item Information: ')
         RightBodyFrame.pack(side=RIGHT)
@@ -53,54 +53,68 @@ class Product:
         ''' Add the Widgets to LeftBodyFrame'''
 
         self.labelpId=Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                             text="Product Id : ", padx =2, bg='white', fg = 'blue')
+                             text="Product Id : ", padx =2, pady=2, bg='white', fg = 'blue')
         self.labelpId.grid(row=0, column=0, sticky= W)
 
         self.txtpId = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pId, width=30)
+                            textvariable=pId, width=35)
         self.txtpId.grid(row=0, column=1, sticky= W)
 
         self.labelpName = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                              text="Product Name : ", padx=2, bg='white', fg='blue')
+                              text="Product Name : ", padx=2, pady=2, bg='white', fg='blue')
         self.labelpName.grid(row=1, column=0, sticky=W)
 
         self.txtpName = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pName, width=30)
+                            textvariable=pName, width=35)
         self.txtpName.grid(row=1, column=1, sticky=W)
 
         self.labelpPrice = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                              text="Product Price : ", padx=2, bg='white', fg='blue')
+                              text="Product Price : ", padx=2, pady=2, bg='white', fg='blue')
         self.labelpPrice.grid(row=2, column=0, sticky=W)
 
         self.txtpPrice = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pPrice, width=30)
+                            textvariable=pPrice, width=35)
         self.txtpPrice.grid(row=2, column=1, sticky=W)
 
         self.labelpQty = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                              text="Product Quantity : ", padx=2, bg='white', fg='blue')
+                              text="Product Quantity : ", padx=2, pady=2, bg='white', fg='blue')
         self.labelpQty.grid(row=3, column=0, sticky=W)
 
         self.txtpQty = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pQty, width=30)
+                            textvariable=pQty, width=35)
         self.txtpQty.grid(row=3, column=1, sticky=W)
 
         self.labelpCompany = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                              text="Mfg. Company : ", padx=2, bg='white', fg='blue')
+                              text="Mfg. Company : ", padx=2, pady=2, bg='white', fg='blue')
         self.labelpCompany.grid(row=4, column=0, sticky=W)
 
         self.txtpCompany = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pCompany, width=30)
+                            textvariable=pCompany, width=35)
         self.txtpCompany.grid(row=4, column=1, sticky=W)
 
         self.labelpContact = Label(LeftBodyFrame, font=('arial', 15, 'bold'),
-                              text="Company Contact", padx=2, bg='white', fg='blue')
+                              text="Company Contact", padx=2, pady=2, bg='white', fg='blue')
         self.labelpContact.grid(row=5, column=0, sticky=W)
 
         self.txtpContact = Entry(LeftBodyFrame, font=('arial', 20, 'bold'),
-                            textvariable=pContact, width=30)
+                            textvariable=pContact, width=35)
         self.txtpContact.grid(row=5, column=1, sticky=W)
 
+        self.labelpC1 = Label(LeftBodyFrame, padx=2, pady=2)
+        self.labelpC1.grid(row=6, column=0, sticky=W)
 
+        self.labelpC2 = Label(LeftBodyFrame, padx=2, pady=2)
+        self.labelpC2.grid(row=7, column=0, sticky=W)
+
+        self.labelpC3 = Label(LeftBodyFrame, padx=2, pady=2)
+        self.labelpC3.grid(row=8, column=0, sticky=W)
+
+        self.labelpC4 = Label(LeftBodyFrame, padx=2, pady=2)
+        self.labelpC4.grid(row=9, column=0, sticky=W)
+
+        ''' Add Scroll Bar'''
+        scroll = Scrollbar(RightBodyFrame)
+        scroll.grid(row= 0, column= 1, sticky='ns')
 
 
 if __name__ =='__main__':

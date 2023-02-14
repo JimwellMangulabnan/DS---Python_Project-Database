@@ -56,10 +56,22 @@ class Product:
                 productList.insert(END,pId.get(), pName.get(), pQty.get(), pPrice.get(),
                          pCompany.get(), pContact.get())
 
+                showInProductList() #called showInProductList method
+                #after inserting the data record to database table
+
             else:
                 tkinter.messagebox.askyesno("WAREHOUSE INVENTORY SALES PURCHASE MANAGEMENT \
                                     SYSTEM ", "Really .... Enter Product id")
             print("Product : insert method finished\n ")
+
+        #function responsible to show product table data to scroll product list
+        def showInProductList():
+            print("Product : showInProductList method called ")
+            productList.delete(0, END)
+            for row in p.show():
+                productList.insert(END, row, str(""))
+            print("Product : showInProductList method finished\n ")
+
 
         ''' Create the frame'''
         MainFrame = Frame(self.root,bg="red")

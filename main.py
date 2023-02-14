@@ -198,7 +198,8 @@ class Product:
         scroll.grid(row= 0, column= 1, sticky='ns')
         productList = Listbox(RightBodyFrame, width=40, height=16, font=('arial', 12, 'bold'),
                 yscrollcommand = scroll.set)
-
+        #called above created producutRec Function from init
+        productList.bind('<<ListboxSelect>>',productRec)
 
         productList.grid(row=0, column= 0, padx= 8)
         scroll.config(command=productList.yview)

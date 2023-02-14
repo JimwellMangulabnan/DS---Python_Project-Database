@@ -109,6 +109,19 @@ class Product:
                 clear()
                 showInProductList()
             print("Product : delete method finished\n ")
+
+        #search the record from database table
+        def search():
+            print("Product : search method called ")
+            productList.delete(0, END)
+            for row in p.search(pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                                pCompany.get(), pContact.get()):
+                productList.insert(END, row, str(""))
+            print("Product : search method finished\n ")
+
+
+
+
             ''' p.insert(pId.get(), pName.get(), pQty.get(), pPrice.get(),
                          pCompany.get(), pContact.get())
                 productList.delete(0, END)
@@ -241,7 +254,7 @@ class Product:
         self.buttonDelete.grid(row=0, column=3)
 
         self.buttonSearch = Button(OperationFrame, text='Search',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command=search)
         self.buttonSearch.grid(row=0, column=4)
 
         self.buttonUpdate = Button(OperationFrame, text='Update',
@@ -301,7 +314,7 @@ class Database:
         con = sqlite3.connect("inventory.db")
         cur = con.cursor()
         cur.execute("select * from product where pid=? or pname=? or \
-                    price=? or qty=? or company=? or contact=?")
+                    price=? or qty=? or company=? or contact=?", (pid,name,price,qty,company,contact))
         row = cur.fetchall()
         con.close()
         print(pid, "Database : select method finished\n")

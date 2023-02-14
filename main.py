@@ -119,18 +119,19 @@ class Product:
                 productList.insert(END, row, str(""))
             print("Product : search method finished\n ")
 
-
-
-
-            ''' p.insert(pId.get(), pName.get(), pQty.get(), pPrice.get(),
+        #Function to update the record
+        def update():
+            print("Product : update method called")
+            if (len(pId.get()) != 0):
+                print("pd[0]",pId.get[p])
+                p.delete(pd[0])
+            if (len(pId.get()) != 0):
+                p.insert(pId.get(), pName.get(), pQty.get(), pPrice.get(),
                          pCompany.get(), pContact.get())
                 productList.delete(0, END)
-                productList.insert(END, pId.get(), pName.get(), pQty.get(), pPrice.get(),
-                                   pCompany.get(), pContact.get())
-
-                showInProductList()  # called showInProductList method
-            '''
-
+            productList.p.insert(END, (pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                         pCompany.get(), pContact.get()))
+            print("Product : update method finished\n ")
 
 
         ''' Create the frame'''
@@ -258,7 +259,7 @@ class Product:
         self.buttonSearch.grid(row=0, column=4)
 
         self.buttonUpdate = Button(OperationFrame, text='Update',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command=update)
         self.buttonUpdate.grid(row=0, column=5)
 
         self.buttonClose = Button(OperationFrame, text='Close',

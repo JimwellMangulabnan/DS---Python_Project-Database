@@ -72,6 +72,34 @@ class Product:
                 productList.insert(END, row, str(""))
             print("Product : showInProductList method finished\n ")
 
+        # add to scroll bar
+        def productRec(event): # function to be called from scrollbar productList
+            print("Product : productRec method called ")
+            global pd
+
+            searchPd = productList.curselection()[0]
+            pd = productList.get(searchPd)
+
+            self.txtpId.delete(0,END)
+            self.txtpId.insert(END,pd[0])
+
+            self.txtpName.delete(0, END)
+            self.txtpName.insert(END, pd[1])
+
+            self.txtpPrice.delete(0, END)
+            self.txtpPrice.insert(END, pd[2])
+
+            self.txtpQty.delete(0, END)
+            self.txtpQty.insert(END, pd[3])
+
+            self.txtpCompany.delete(0, END)
+            self.txtpCompany.insert(END, pd[4])
+
+            self.txtpContact.delete(0, END)
+            self.txtpContact.insert(END, pd[5])
+
+            print("Product : productRec method finished\n ")
+
 
         ''' Create the frame'''
         MainFrame = Frame(self.root,bg="red")
@@ -168,20 +196,20 @@ class Product:
         ''' Add Scroll Bar'''
         scroll = Scrollbar(RightBodyFrame)
         scroll.grid(row= 0, column= 1, sticky='ns')
-
         productList = Listbox(RightBodyFrame, width=40, height=16, font=('arial', 12, 'bold'),
-                yscrollcommand = scroll. set)
+                yscrollcommand = scroll.set)
+
 
         productList.grid(row=0, column= 0, padx= 8)
         scroll.config(command=productList.yview)
 
         ''' Add the buttons to operation Frame'''
         self.buttonSaveData = Button(OperationFrame, text = 'Save',
-                                 font= ('arial', 18, 'bold'), height =1, width = '10', bd =4, command = insert)
+                                 font= ('arial', 18, 'bold'), height =1, width = '10', bd =4, command =insert)
         self.buttonSaveData.grid(row = 0, column =0)
 
         self.buttonShowData = Button(OperationFrame, text='Show Data',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command=showInProductList)
         self.buttonShowData.grid(row=0, column=1)
 
         self.buttonClear = Button(OperationFrame, text='Reset',

@@ -8,6 +8,7 @@ class Product:
 
     def __init__(self,root):
 
+        #create object reference instance of Database class as p
         p = Database()
         p.conn()
 
@@ -99,6 +100,24 @@ class Product:
             self.txtpContact.insert(END, pd[5])
 
             print("Product : productRec method finished\n ")
+
+        #function to delete the data record from database table
+        def delete():
+            print("Product : delete method called ")
+            if (len(pId.get()) != 0):
+                p.delete(pd[0])
+                clear()
+                showInProductList()
+            print("Product : delete method finished\n ")
+            ''' p.insert(pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                         pCompany.get(), pContact.get())
+                productList.delete(0, END)
+                productList.insert(END, pId.get(), pName.get(), pQty.get(), pPrice.get(),
+                                   pCompany.get(), pContact.get())
+
+                showInProductList()  # called showInProductList method
+            '''
+
 
 
         ''' Create the frame'''
@@ -218,7 +237,7 @@ class Product:
         self.buttonClear.grid(row=0, column=2)
 
         self.buttonDelete = Button(OperationFrame, text='Delete',
-                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4)
+                                 font=('arial', 18, 'bold'), height=1, width='10', bd=4, command=delete)
         self.buttonDelete.grid(row=0, column=3)
 
         self.buttonSearch = Button(OperationFrame, text='Search',
